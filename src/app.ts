@@ -16,10 +16,10 @@ import searchRoutes from './routes/search.routes';
 import genreRoutes from './routes/genres.routes';
 import movieRoutes from './routes/movies.routes';
 import tvRoutes from './routes/tv.routes';
-app.use('/api/v1/', searchRoutes);
-app.use('api/v1/', genreRoutes);
-app.use('/api/v1/', movieRoutes);
-app.use('/api/v1/', tvRoutes);
+app.use('/api/v1', searchRoutes);
+app.use('/api/v1', genreRoutes);
+app.use('/api/v1', movieRoutes);
+app.use('/api/v1', tvRoutes);
 
 app.listen(8080, () => {
   console.log('Server started in PORT 8080');

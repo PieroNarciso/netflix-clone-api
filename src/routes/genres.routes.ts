@@ -8,7 +8,7 @@ import {
 const router = Router();
 
 router.get('/genre/movie', getGenreMovieList);
-router.get('genre/tv', getGenreTVList);
+router.get('/genre/tv', getGenreTVList);
 
 
 export default router;
