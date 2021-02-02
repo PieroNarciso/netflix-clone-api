@@ -5,6 +5,7 @@ const app = express();
 
 // Middlewares
 app.use(express.json());
+app.use(express.urlencoded());
 
 app.get('/', (_req: Request, res: Response) => {
   res.send('Express API');
