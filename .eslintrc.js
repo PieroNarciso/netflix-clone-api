@@ -35,7 +35,7 @@ module.exports = {
   },
   'overrides': [
     {
-      'files': ['**/*.controller.ts'],
+      'files': ['**/*.controller.ts', 'auth.ts'],
       'rules': {
         '@typescript-eslint/explicit-module-boundary-types': 'off'
       }

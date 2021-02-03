@@ -1,3 +1,6 @@
+#
+redis
+dbdata
 # Logs
 logs
 *.log
