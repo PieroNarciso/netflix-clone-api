@@ -3,6 +3,7 @@ version: '3'
 services:
     api:
         image: netflix-clone-dev
+        container_name: netflix-clone-api-dev
         build:
             context: .
             dockerfile: Dockerfile.dev
@@ -16,3 +17,28 @@ services:
             NODE_ENV: development
             API_KEY: ${API_KEY}
             BASE_URL: ${BASE_URL}
+            DB_URI: postgresql://postgres:postgres@netflix-clone-db-dev:5432/dev
+            REDIS_URL: redis://netflix-cache-dev
+        depends_on:
+          - db
+          - storage
+
+    db:
+      container_name: netflix-clone-db-dev
+      image: postgres
+      restart: always
+      environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_DB: dev
+      volumes:
+        - ./dbdata:/var/lib/portables/data
+
+    storage:
+        image: redis
+        container_name: netflix-cache-dev
+        command: [ "redis-server" ]
+        ports:
+            - "6379:6379"
+        volumes:
+            - ./redis:/app
