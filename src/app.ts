@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import cors from 'cors';
 import redis from 'redis';
 import session from 'express-session';
 import connectRedis from 'connect-redis';
@@ -8,6 +9,12 @@ import db from './db';
 
 
 const app = express();
+
+app.use(cors({
+  origin: config.CORS_ORIGIN_WHITELIST,
+  credentials: true,
+  exposedHeaders: ['Set-Cookie']
+}));
 
 // Setup DataBase
 db.authenticate()
