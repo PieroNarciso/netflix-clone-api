@@ -19,6 +19,7 @@ services:
             BASE_URL: ${BASE_URL}
             DB_URI: postgresql://postgres:postgres@netflix-clone-db-dev:5432/dev
             REDIS_URL: redis://netflix-cache-dev
+            CORS_ORIGIN_WHITELIST: ${CORS_ORIGIN_WHITELIST}
         depends_on:
           - db
           - storage
